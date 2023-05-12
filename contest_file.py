@@ -52,7 +52,7 @@ class DetermineColor:
 
                 # Extract the screen region
                 self.mask = np.zeros(gray.shape, dtype=np.uint8)
-                cv2.drawContours(mask, [self.approx], 0, (255, 255, 255), -1)
+                cv2.drawContours(self.mask, [self.approx], 0, (255, 255, 255), -1)
 
             # Extract screen from image
             screen = cv2.bitwise_and(img, img, mask=self.mask)
