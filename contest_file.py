@@ -51,11 +51,11 @@ class DetermineColor:
                 self.approx = cv2.approxPolyDP(largest_contour, epsilon, True)
 
                 # Extract the screen region
-                mask = np.zeros(gray.shape, dtype=np.uint8)
+                self.mask = np.zeros(gray.shape, dtype=np.uint8)
                 cv2.drawContours(mask, [self.approx], 0, (255, 255, 255), -1)
 
             # Extract screen from image
-            screen = cv2.bitwise_and(img, img, mask=mask)
+            screen = cv2.bitwise_and(img, img, mask=self.mask)
 
             # HSV color
             hsv = cv2.cvtColor(screen, cv2.COLOR_BGR2HSV)
