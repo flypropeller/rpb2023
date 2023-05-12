@@ -62,18 +62,18 @@ class DetermineColor:
 
             # Define the red mask
             lower_red = np.array([0, 100, 100])
-            upper_red = np.array([10, 255, 255])
+            upper_red = np.array([20, 255, 255])
             mask1 = cv2.inRange(hsv, lower_red, upper_red)
 
-            lower_red = np.array([160, 100, 100])
+            lower_red = np.array([150, 100, 100])
             upper_red = np.array([189, 255, 255])
             mask2 = cv2.inRange(hsv, lower_red, upper_red)
 
             mask_red = cv2.bitwise_or(mask1, mask2)
 
             # Define the blue mask
-            lower_blue = np.array([100, 50, 50])
-            upper_blue = np.array([130, 255, 255])
+            lower_blue = np.array([90, 40, 40])
+            upper_blue = np.array([140, 255, 255])
             mask_blue = cv2.inRange(hsv, lower_blue, upper_blue)
 
             # Count red, blue pixels
